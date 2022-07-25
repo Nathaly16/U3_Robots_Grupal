@@ -1,0 +1,31 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Ejercicio7 is
+port (clk,SD: in std_logic;
+			x1,x0: out std_logic;
+			y1,y0: out std_logic);
+end Ejercicio7;
+
+architecture Behavioral of Ejercicio7 is
+process (clk,SD)
+	begin
+	if (clk'event and clk='1') then
+	if (SD='0') then
+		x1<='1';
+		x0<='0';
+		y1<='1';
+		y0<='0';
+	else
+		x0<='0';
+		y0<='1';	
+		x1<='1';
+		y1<='0';
+		x1<='0' after 2000 ms;
+		y1<='0' after 2000 ms;	
+ end if;
+end if;
+end process; 
+end Behavioral;
+
